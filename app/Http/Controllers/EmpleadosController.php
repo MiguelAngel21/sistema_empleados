@@ -15,9 +15,11 @@ class EmpleadosController extends Controller
     public function index()
     {
         $empleado =  DB::select('SELECT empleados.*,departamentos.nombre as depto,empresas.nombre as empresa
-        FROM empleados, departamentos,empresas
-        WHERE empleados.id_departamento= departamentos.id
-        AND departamentos.id_empresa = empresas.id'); 
+        FROM empleados
+        LEFT JOIN departamentos
+        ON empleados.id_departamento= departamentos.id
+        LEFT JOIN empresas        
+        ON departamentos.id_empresa = empresas.id'); 
 
         return view('empleados.empleados')->with('empleado',$empleado);
     }
@@ -117,6 +119,7 @@ class EmpleadosController extends Controller
     public function destroy(Empleados $empleados)
     {
         $empleados->delete();
+        
         $empleado =  DB::select('SELECT empleados.*,departamentos.nombre as depto,empresas.nombre as empresa
         FROM empleados, departamentos,empresas
         WHERE empleados.id_departamento= departamentos.id

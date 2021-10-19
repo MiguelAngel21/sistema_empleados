@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2021 at 12:18 AM
+-- Generation Time: Oct 20, 2021 at 12:55 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -40,7 +40,7 @@ CREATE TABLE `departamentos` (
 --
 
 INSERT INTO `departamentos` (`id`, `nombre`, `id_empresa`, `created_at`, `updated_at`) VALUES
-(2, 'Sistemas', 1, NULL, NULL);
+(1, 'Sistemas', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
